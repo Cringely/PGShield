@@ -95,8 +95,8 @@ esac
 }
 
 appexempt() {
-bash /opt/coreapps/apps/_appsgen.sh
-bash /opt/communityapps/apps/_appsgen.sh
+bash /opt/coreapps/apps/_appsgen.sh > /var/plexguide/app.list
+bash /opt/communityapps/apps/_appsgen.sh >> /var/plexguide/app.list
 ls -l /var/plexguide/auth | awk '{ print $9 }' > /var/plexguide/pgshield.ex15
 
 tee <<-EOF
