@@ -97,7 +97,6 @@ esac
 appexempt() {
 bash /opt/coreapps/apps/_appsgen.sh > /var/plexguide/app.list
 bash /opt/communityapps/apps/_appsgen.sh >> /var/plexguide/app.list
-cat /var/plexguide/app.list | sort > /var/plexguide/app.list
 ls -l /var/plexguide/auth | awk '{ print $9 }' > /var/plexguide/pgshield.ex15
 
 tee <<-EOF
@@ -166,7 +165,7 @@ phase31(){
     fi
   done </var/plexguide/app.list
 
-  notrun=$(cat /var/plexguide/program.temp)
+  notrun=$(cat /var/plexguide/program.temp | sort)
 
 tee <<-EOF
 
@@ -216,7 +215,7 @@ phase21(){
     fi
   done </var/plexguide/pgshield.ex15
 
-  notrun=$(cat /var/plexguide/program.temp)
+  notrun=$(cat /var/plexguide/program.temp | sort)
 
 tee <<-EOF
 
